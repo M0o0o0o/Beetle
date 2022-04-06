@@ -1,12 +1,11 @@
 package com.beetle.backend.domain;
 
+import com.beetle.backend.domain.address.Address;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
 @Getter
@@ -17,4 +16,11 @@ public class Delivery {
     @Column(name = "delivery_id")
     private Long id;
 
+    @Enumerated(value = EnumType.STRING)
+    private DeliveryStatus deliveryStatus;
+
+    @Embedded
+    private Address address;
+
+    private LocalDateTime deliveryDate;
 }

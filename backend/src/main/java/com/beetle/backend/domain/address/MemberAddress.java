@@ -19,5 +19,8 @@ public class MemberAddress {
     @JoinColumn(name = "member_id")
     private Member member;
 
+    @Embedded
+    private Address address;
+
 }
 
